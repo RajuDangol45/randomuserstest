@@ -13,7 +13,7 @@ function useRandomUsersFetch() {
     axios
       .get(url)
       .then((response) => {
-        setData(response.data);
+        setData(response.data.results);
       })
       .catch((err) => {
         setError(err);
@@ -23,7 +23,7 @@ function useRandomUsersFetch() {
       });
   }, [url]);
 
-  return { data, loading, error };
+  return { data, loading, error, setData };
 }
 
 export default useRandomUsersFetch;

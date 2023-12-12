@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">RandomUsersList</IonTitle>
+            <IonTitle size="large">Random Users List</IonTitle>
           </IonToolbar>
         </IonHeader>
         <RandomUsersList></RandomUsersList>

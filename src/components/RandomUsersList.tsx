@@ -3,14 +3,19 @@ import useRandomUsersFetch from "../service/RandomUsersFetch";
 import RandomUser from "./RandomUser";
 
 const RandomUsersList = (): JSX.Element => {
-  const { data, loading } = useRandomUsersFetch();
+  let { data, loading, setData } = useRandomUsersFetch();
+
+  const deleteUser = (email: string) => {
+    data = data.filter((user: any) => user.email !== email);
+    setData(data)
+  }
 
   return (
     <div>
-      {loading && <IonLoading></IonLoading>}
+      <IonLoading isOpen={loading} message={'Fetching users'}></IonLoading>
       {!loading && (
         <IonList>
-          {data && data.results.map((el: any) => <RandomUser key={el.login.uuid} user={el}></RandomUser>)}
+          {data && data.map((el: any) => <RandomUser key={el.email} user={el} deleteUser={deleteUser}></RandomUser>)}
         </IonList>
       )}
     </div>

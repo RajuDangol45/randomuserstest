@@ -1,11 +1,15 @@
-import { IonItem, IonItemSliding, IonLabel } from "@ionic/react";
+import { IonItem, IonItemOption, IonItemSliding, IonLabel, IonItemOptions } from "@ionic/react";
 
-const RandomUser = (user: any): JSX.Element => {
+const RandomUser = (props: any): JSX.Element => {
   return (
     <IonItemSliding>
       <IonItem>
-        <IonLabel>{user.email}</IonLabel>
+        <IonLabel>{props.user.email}</IonLabel>
       </IonItem>
+
+      <IonItemOptions>
+        <IonItemOption color="danger" onClick={() => props.deleteUser(props.user.email)}>Delete</IonItemOption>
+      </IonItemOptions>
     </IonItemSliding>
   );
 };
