@@ -1,0 +1,7 @@
+{
+  "name": "randomusertest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
